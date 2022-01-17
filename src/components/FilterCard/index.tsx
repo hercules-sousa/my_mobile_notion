@@ -1,11 +1,23 @@
-import { Container, CardText } from "./styles";
+import {
+  SelectedContainer,
+  SelectedCardText,
+  NotSelectedContainer,
+  NotSelectedCardText,
+} from "./styles";
+import { FilterCardProps } from "./types";
 
-function FilterCard() {
-  const cardtext = "Não sei";
+function FilterCard({ cardText, isSelected }: FilterCardProps) {
+  if (isSelected) {
+    return (
+      <SelectedContainer>
+        <SelectedCardText>{cardText}</SelectedCardText>
+      </SelectedContainer>
+    );
+  }
   return (
-    <Container backgroundColor="yellow">
-      <CardText>{cardtext}</CardText>
-    </Container>
+    <NotSelectedContainer>
+      <NotSelectedCardText>{cardText}</NotSelectedCardText>
+    </NotSelectedContainer>
   );
 }
 
