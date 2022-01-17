@@ -5,6 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Header from "./src/components/Header";
+import FilterCard from "./src/components/FilterCard";
 
 const Drawer = createDrawerNavigator();
 
@@ -12,6 +13,9 @@ function TodayPage() {
   return (
     <View style={{ flex: 1, padding: 8 }}>
       <Header title="Today" />
+      <View style={{ flexDirection: "row" }}>
+        <FilterCard />
+      </View>
     </View>
   );
 }
