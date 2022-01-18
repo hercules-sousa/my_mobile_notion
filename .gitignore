@@ -13,4 +13,4 @@ web-build/
 # macOS
 .DS_Store
 
-mock/*.ts
+src/mock/index.ts

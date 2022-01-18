@@ -34,9 +34,5 @@ export const filterCardsMock = [
     name: "Controle Financeiro",
     color: "green",
   },
-  {
-    id: "c21f8f05-dc11-40e7-ac3b-d17fb8f74e66",
-    name: "Synchro4TDF",
-    color: "blue",
-  },
+  
 ]
