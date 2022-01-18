@@ -1,6 +1,9 @@
+import { GestureResponderEvent } from "react-native";
+
 export interface FilterCardProps {
-  isSelected?: boolean;
-  cardText: string;
+  cardName: string;
+  selectedFilterCardName: string | undefined;
+  onPressFilterCard: ((event: string) => void);
 }
 
 export interface TouchableOpacityExtended {

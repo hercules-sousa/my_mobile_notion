@@ -6,17 +6,25 @@ import {
 } from "./styles";
 import { FilterCardProps } from "./types";
 
-function FilterCard({ cardText, isSelected }: FilterCardProps) {
-  if (isSelected) {
+function FilterCard({
+  cardName,
+  selectedFilterCardName,
+  onPressFilterCard,
+}: FilterCardProps) {
+  if (cardName === selectedFilterCardName) {
     return (
-      <SelectedContainer>
-        <SelectedCardText>{cardText}</SelectedCardText>
+      <SelectedContainer
+        onPress={() => {
+          onPressFilterCard(cardName);
+        }}
+      >
+        <SelectedCardText>{cardName}</SelectedCardText>
       </SelectedContainer>
     );
   }
   return (
-    <NotSelectedContainer>
-      <NotSelectedCardText>{cardText}</NotSelectedCardText>
+    <NotSelectedContainer onPress={(e) => onPressFilterCard(cardName)}>
+      <NotSelectedCardText>{cardName}</NotSelectedCardText>
     </NotSelectedContainer>
   );
 }
