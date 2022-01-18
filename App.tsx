@@ -1,24 +1,14 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { Text, View, ScrollView } from "react-native";
+import { Text, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Header from "./src/components/Header";
 import FilterLine from "./src/components/FilterLine";
-import FilterCard from "./src/components/FilterCard";
+import TodayPage from "./src/pages/TodayPage";
 
 const Drawer = createDrawerNavigator();
-
-function TodayPage() {
-  return (
-    <View style={{ flex: 1, padding: 8 }}>
-      <Header title="Today" />
-
-      <FilterLine />
-    </View>
-  );
-}
 
 function Test1() {
   return (

@@ -1,18 +1,27 @@
 import { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
+import { filterCardsMock } from "../../mock";
 import FilterCard from "../FilterCard";
 import { Container } from "./styles";
 
+interface FilterCardProps {
+  id: string;
+  name: string;
+  color: string;
+}
+
 function FilterLine() {
   const [selectedFilterCard, setSelectedFilterCard] = useState<string>();
+  const [filterCards, setFilterCards] = useState<Array<FilterCardProps>>();
 
   useEffect(() => {
     setSelectedFilterCard("All");
+    setFilterCards(filterCardsMock);
   }, []);
 
-  const handleClickOnFilterCard = (cardName: string) => {
+  function handleClickOnFilterCard(cardName: string) {
     setSelectedFilterCard(cardName);
-  };
+  }
 
   return (
     <Container>
@@ -22,21 +31,14 @@ function FilterLine() {
           selectedFilterCardName={selectedFilterCard}
           onPressFilterCard={handleClickOnFilterCard}
         />
-        <FilterCard
-          cardName="Habits Tracker"
-          selectedFilterCardName={selectedFilterCard}
-          onPressFilterCard={handleClickOnFilterCard}
-        />
-        <FilterCard
-          cardName="Programação"
-          selectedFilterCardName={selectedFilterCard}
-          onPressFilterCard={handleClickOnFilterCard}
-        />
-        <FilterCard
-          cardName="IFPB"
-          selectedFilterCardName={selectedFilterCard}
-          onPressFilterCard={handleClickOnFilterCard}
-        />
+        {filterCards?.map((filterCard) => (
+          <FilterCard
+            key={filterCard.id}
+            cardName={filterCard.name}
+            selectedFilterCardName={selectedFilterCard}
+            onPressFilterCard={handleClickOnFilterCard}
+          />
+        ))}
       </ScrollView>
     </Container>
   );

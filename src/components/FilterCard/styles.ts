@@ -5,7 +5,8 @@ import { TouchableOpacityExtended } from './types';
 const Container = styled.TouchableOpacity<TouchableOpacityExtended>`  
   padding: 8px 14px 8px 14px;
   border-radius: 8px;
-  margin-right: ${({ marginRight }) => marginRight || "8px"};
+  margin-right: ${({ marginRight }) => marginRight || "4px"};
+  margin-left: ${({ marginLeft }) => marginLeft || "4px"};
 `;
 
 const CardText = styled.Text`
@@ -17,11 +18,11 @@ export const SelectedContainer = styled(Container)`
 `
 
 export const SelectedCardText = styled(CardText)`
-  color: #fff;
+  color: #F2F2F2;
 `
 
 export const NotSelectedContainer = styled(Container)`
-  background-color: #fff;
+  background-color: #F2F2F2;
   border: 1px solid #000;
 `
 

@@ -8,4 +8,5 @@ export interface FilterCardProps {
 
 export interface TouchableOpacityExtended {
   marginRight?: string;
+  marginLeft?: string;
 }
