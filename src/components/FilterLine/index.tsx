@@ -4,7 +4,7 @@ import { Container } from "./styles";
 
 function FilterLine() {
   return (
-    <Container style={{ height: 48 }}>
+    <Container>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <FilterCard cardText="All" isSelected={true} />
         <FilterCard cardText="Habits Tracker" isSelected={false} />

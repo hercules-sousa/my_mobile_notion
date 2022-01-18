@@ -1,10 +1,8 @@
 import styled from 'styled-components/native';
 
-interface ViewExtended {
-  marginRight?: string;
-}
+import { TouchableOpacityExtended } from './types';
 
-const Container = styled.View<ViewExtended>`  
+const Container = styled.TouchableOpacity<TouchableOpacityExtended>`  
   padding: 8px 14px 8px 14px;
   border-radius: 8px;
   margin-right: ${({ marginRight }) => marginRight || "8px"};
