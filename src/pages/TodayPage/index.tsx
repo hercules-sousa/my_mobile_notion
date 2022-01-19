@@ -7,7 +7,11 @@ import { Container, PageCardsContainer } from "./styles";
 
 function TodayPage() {
   return (
-    <LinearGradient colors={["yellow", "#f2f2f2"]} style={{ flex: 1 }}>
+    <LinearGradient
+      colors={["yellow", "orange"]}
+      style={{ flex: 1 }}
+      locations={[0.1, 0.4]}
+    >
       <Header title="Today" />
       <FilterLine />
       <PageCardsContainer

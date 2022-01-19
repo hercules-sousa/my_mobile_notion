@@ -12,8 +12,10 @@ export const Container = styled.View<ViewExtended>`
 
 export const PageCardsContainer = styled.ScrollView`
   flex: 1;
-  padding: 8px;
-  margin: 24px 8px 8px 8px;
+  padding: 16px;
+  margin: 24px 0px 0px 0px;
   background-color: white;
   display: flex;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 `;
