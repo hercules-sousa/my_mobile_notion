@@ -7,24 +7,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import Header from "./src/components/Header";
 import FilterLine from "./src/components/FilterLine";
 import TodayPage from "./src/pages/TodayPage";
+import ControleFinanceiro from "./src/pages/ControleFinanceiro";
 
 const Drawer = createDrawerNavigator();
-
-function Test1() {
-  return (
-    <View>
-      <Text>Test1</Text>
-    </View>
-  );
-}
-
-function Test2() {
-  return (
-    <View>
-      <Text>Test2</Text>
-    </View>
-  );
-}
 
 function MyDrawer() {
   return (
@@ -44,8 +29,10 @@ function MyDrawer() {
       }}
     >
       <Drawer.Screen name="Today" component={TodayPage} />
-      <Drawer.Screen name="Test1" component={Test1} />
-      <Drawer.Screen name="Test2" component={Test2} />
+      <Drawer.Screen
+        name="Controle Financeiro"
+        component={ControleFinanceiro}
+      />
     </Drawer.Navigator>
   );
 }

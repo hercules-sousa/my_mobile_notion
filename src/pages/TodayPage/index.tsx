@@ -1,3 +1,5 @@
+import { LinearGradient } from "expo-linear-gradient";
+
 import FilterLine from "../../components/FilterLine";
 import Header from "../../components/Header";
 import PageCard from "../../components/PageCard";
@@ -5,7 +7,7 @@ import { Container, PageCardsContainer } from "./styles";
 
 function TodayPage() {
   return (
-    <Container>
+    <LinearGradient colors={["yellow", "#f2f2f2"]} style={{ flex: 1 }}>
       <Header title="Today" />
       <FilterLine />
       <PageCardsContainer
@@ -16,16 +18,15 @@ function TodayPage() {
           alignItems: "flex-start",
         }}
       >
-        <PageCard backgroundColor="red" />
-        <PageCard backgroundColor="blue" />
-        <PageCard backgroundColor="green" />
-        <PageCard backgroundColor="orange" />
-        <PageCard backgroundColor="red" />
-        <PageCard backgroundColor="blue" />
-        <PageCard backgroundColor="green" />
-        <PageCard backgroundColor="orange" />
+        <PageCard backgroundColor="primaryBlack" />
+        <PageCard backgroundColor="primaryBlack" />
+        <PageCard backgroundColor="primaryBlack" />
+        <PageCard backgroundColor="primaryBlack" />
+        <PageCard backgroundColor="primaryBlack" />
+        <PageCard backgroundColor="primaryBlack" />
+        <PageCard backgroundColor="primaryBlack" />
       </PageCardsContainer>
-    </Container>
+    </LinearGradient>
   );
 }
 

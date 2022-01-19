@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
 import { colors } from '../../globalStyle';
 
-interface ViewExtended {
+interface TouchableOpacityExtended {
   backgroundColor?: string | undefined;
 }
 
-export const Container = styled.View<ViewExtended>`
+export const Container = styled.TouchableOpacity<TouchableOpacityExtended>`
   padding: 8px;
   background-color: ${({ backgroundColor }) => {
     type ColorKey = keyof typeof backgroundColor;
