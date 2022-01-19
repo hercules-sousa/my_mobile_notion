@@ -3,7 +3,12 @@ import { ScrollView, Text } from "react-native";
 
 import FilterLine from "../../components/FilterLine";
 import PageCard from "../../components/PageCard";
-import { Container, HeaderContainer, HeaderTitleContainer } from "./styles";
+import {
+  Container,
+  FilterLineContainer,
+  HeaderContainer,
+  HeaderTitleContainer,
+} from "./styles";
 
 function TodayPage() {
   return (
@@ -14,8 +19,9 @@ function TodayPage() {
             Today
           </Text>
         </HeaderTitleContainer>
-
-        <FilterLine />
+        <FilterLineContainer>
+          <FilterLine />
+        </FilterLineContainer>
       </HeaderContainer>
 
       <LinearGradient
@@ -23,7 +29,6 @@ function TodayPage() {
         style={{
           flex: 1,
           padding: 16,
-          marginTop: 24,
           borderTopLeftRadius: 24,
           borderTopRightRadius: 24,
         }}

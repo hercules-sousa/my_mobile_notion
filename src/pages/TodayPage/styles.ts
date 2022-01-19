@@ -17,3 +17,8 @@ export const HeaderTitleContainer = styled.View`
   padding: 16px;
   background-color: red;
 `;
+
+export const FilterLineContainer = styled.View`
+  margin-top: 16px;
+  margin-bottom: 16px;
+`
