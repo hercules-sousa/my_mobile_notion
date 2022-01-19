@@ -1,36 +1,44 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { ScrollView, Text } from "react-native";
 
 import FilterLine from "../../components/FilterLine";
-import Header from "../../components/Header";
 import PageCard from "../../components/PageCard";
-import { Container, PageCardsContainer } from "./styles";
+import { Container, HeaderContainer, HeaderTitleContainer } from "./styles";
 
 function TodayPage() {
   return (
-    <LinearGradient
-      colors={["yellow", "orange"]}
-      style={{ flex: 1 }}
-      locations={[0.1, 0.4]}
-    >
-      <Header title="Today" />
-      <FilterLine />
-      <PageCardsContainer
-        contentContainerStyle={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-          alignItems: "flex-start",
+    <Container>
+      <HeaderContainer>
+        <HeaderTitleContainer>
+          <Text style={{ fontSize: 48, fontWeight: "bold", marginTop: 32 }}>
+            Today
+          </Text>
+        </HeaderTitleContainer>
+
+        <FilterLine />
+      </HeaderContainer>
+
+      <LinearGradient
+        colors={["#002968", "#0BA9F2"]}
+        style={{
+          flex: 1,
+          padding: 16,
+          marginTop: 24,
+          borderTopLeftRadius: 24,
+          borderTopRightRadius: 24,
         }}
       >
-        <PageCard backgroundColor="primaryBlack" />
-        <PageCard backgroundColor="primaryBlack" />
-        <PageCard backgroundColor="primaryBlack" />
-        <PageCard backgroundColor="primaryBlack" />
-        <PageCard backgroundColor="primaryBlack" />
-        <PageCard backgroundColor="primaryBlack" />
-        <PageCard backgroundColor="primaryBlack" />
-      </PageCardsContainer>
-    </LinearGradient>
+        <ScrollView contentContainerStyle={{ alignItems: "center" }}>
+          <PageCard backgroundColor="primaryBlack" />
+          <PageCard backgroundColor="primaryBlack" />
+          <PageCard backgroundColor="primaryBlack" />
+          <PageCard backgroundColor="primaryBlack" />
+          <PageCard backgroundColor="primaryBlack" />
+          <PageCard backgroundColor="primaryBlack" />
+          <PageCard backgroundColor="primaryBlack" />
+        </ScrollView>
+      </LinearGradient>
+    </Container>
   );
 }
 

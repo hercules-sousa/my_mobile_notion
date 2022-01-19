@@ -6,16 +6,14 @@ interface ViewExtended {
 
 export const Container = styled.View<ViewExtended>`
   flex: 1;
-  padding: 8px;
-  background-color: ${({ backgroundColor }) => backgroundColor || "#F2F2F2"};
+  background-color: ${({ backgroundColor }) => backgroundColor || "#fff"};
 `;
 
-export const PageCardsContainer = styled.ScrollView`
-  flex: 1;
+export const HeaderContainer = styled.View`
+  padding: 8px;
+`
+
+export const HeaderTitleContainer = styled.View`
   padding: 16px;
-  margin: 24px 0px 0px 0px;
-  background-color: white;
-  display: flex;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  background-color: red;
 `;
