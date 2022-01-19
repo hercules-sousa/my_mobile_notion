@@ -18,12 +18,11 @@ export const SelectedContainer = styled(Container)`
 `
 
 export const SelectedCardText = styled(CardText)`
-  color: #F2F2F2;
+  color: #fff;
 `
 
 export const NotSelectedContainer = styled(Container)`
-  background-color: #F2F2F2;
-  border: 1px solid #000;
+  background-color: #fff;
 `
 
 export const NotSelectedCardText = styled(CardText)`

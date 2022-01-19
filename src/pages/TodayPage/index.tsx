@@ -19,6 +19,7 @@ function TodayPage() {
             Today
           </Text>
         </HeaderTitleContainer>
+
         <FilterLineContainer>
           <FilterLine />
         </FilterLineContainer>
