@@ -23,6 +23,7 @@ export const SelectedCardText = styled(CardText)`
 
 export const NotSelectedContainer = styled(Container)`
   background-color: #fff;
+  box-shadow: 10px 5px 5px black;
 `
 
 export const NotSelectedCardText = styled(CardText)`

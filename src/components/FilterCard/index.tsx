@@ -1,4 +1,3 @@
-import { Shadow } from "react-native-shadow-2";
 import {
   SelectedContainer,
   SelectedCardText,
@@ -24,11 +23,9 @@ function FilterCard({
     );
   }
   return (
-    <Shadow distance={8} startColor={"#C0C0C0"} offset={[8, 8]} radius={8}>
-      <NotSelectedContainer onPress={() => onPressFilterCard(cardName)}>
-        <NotSelectedCardText>{cardName}</NotSelectedCardText>
-      </NotSelectedContainer>
-    </Shadow>
+    <NotSelectedContainer onPress={() => onPressFilterCard(cardName)}>
+      <NotSelectedCardText>{cardName}</NotSelectedCardText>
+    </NotSelectedContainer>
   );
 }
 

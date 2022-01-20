@@ -1,23 +1,39 @@
 import { View } from "react-native";
-import { Shadow } from "react-native-shadow-2";
+import Svg, { Rect } from "react-native-svg";
 
 function ControleFinanceiro() {
   return (
     <View
-      style={{ alignItems: "center", padding: 80, backgroundColor: "white" }}
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
-      <Shadow distance={8} startColor={"#C0C0C0"} offset={[8, 8]} radius={8}>
-        <View
-          style={[
-            {
-              width: 100,
-              height: 100,
-              borderRadius: 10,
-              backgroundColor: "#fff",
-            },
-          ]}
-        ></View>
-      </Shadow>
+      <View style={{ backgroundColor: "white", height: 80, width: 80 }}>
+        <Svg height="100%" width="100%" viewBox="0 0 100 100">
+          <Rect
+            x="16"
+            y="18"
+            width="74"
+            height="70"
+            fill="#000"
+            opacity={0.2}
+            rx="20"
+            ry="20"
+          />
+
+          <Rect
+            x="16"
+            y="16"
+            width="70"
+            height="70"
+            fill="white"
+            rx="20"
+            ry="20"
+          />
+        </Svg>
+      </View>
     </View>
   );
 }
