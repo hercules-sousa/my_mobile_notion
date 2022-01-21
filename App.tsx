@@ -1,11 +1,8 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
-import Header from "./src/components/Header";
-import FilterLine from "./src/components/FilterLine";
 import TodayPage from "./src/pages/TodayPage";
 import ControleFinanceiro from "./src/pages/ControleFinanceiro";
 

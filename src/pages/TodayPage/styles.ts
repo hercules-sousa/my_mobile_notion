@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { theme } from '../../globalStyle';
 
 interface ViewExtended {
   backgroundColor?: string;
@@ -6,16 +7,22 @@ interface ViewExtended {
 
 export const Container = styled.View<ViewExtended>`
   flex: 1;
-  background-color: ${({ backgroundColor }) => backgroundColor || "#fff"};
+  background-color: ${({ backgroundColor }) => backgroundColor || theme.todayPageColors.defaultBackgroundColor};
 `;
 
 export const HeaderContainer = styled.View`
   padding: 8px;
+  
 `
 
 export const HeaderTitleContainer = styled.View`
   padding: 16px;
-  background-color: red;
+  border-bottom-color: ${theme.todayPageColors.headerTitleContainerShadowColor};
+  border-bottom-width: 4px;
+  border-right-color: ${theme.todayPageColors.headerTitleContainerShadowColor};
+  border-right-width: 4px;
+  margin: 32px 16px 0px 16px;
+  border-radius: 34px;
 `;
 
 export const FilterLineContainer = styled.View`

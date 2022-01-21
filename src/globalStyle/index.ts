@@ -1,4 +1,4 @@
-export const colors = {
+export const notionColors = {
   primaryBlack: '#101010',
   secondaryBlack: '#2F3437',
   tertiaryBlack: '#373C3F',
@@ -13,3 +13,12 @@ export const colors = {
   gray: '#474C50',
   light_gray: '#404448',
 };
+
+export const theme = {
+  todayPageColors: {
+    defaultBackgroundColor: "#FFF",
+    darkLinearGradientColor: "#002968",
+    lightLinearGradientColor: "#0BA9F2",
+    headerTitleContainerShadowColor: "#F2F2F2"
+  }
+}
