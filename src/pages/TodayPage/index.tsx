@@ -4,6 +4,7 @@ import { ScrollView, Text } from "react-native";
 import FilterLine from "../../components/FilterLine";
 import PageCard from "../../components/PageCard";
 import { theme } from "../../globalStyle";
+import { TodayPages } from "../../mock";
 import {
   Container,
   FilterLineContainer,
@@ -39,13 +40,14 @@ function TodayPage() {
         }}
       >
         <ScrollView contentContainerStyle={{ alignItems: "center" }}>
-          <PageCard backgroundColor="primaryBlack" />
-          <PageCard backgroundColor="primaryBlack" />
-          <PageCard backgroundColor="primaryBlack" />
-          <PageCard backgroundColor="primaryBlack" />
-          <PageCard backgroundColor="primaryBlack" />
-          <PageCard backgroundColor="primaryBlack" />
-          <PageCard backgroundColor="primaryBlack" />
+          {TodayPages.map((page) => (
+            <PageCard
+              key={page.id}
+              activityName={page.properties.Name.title[0].text.content}
+              backgroundColor="primaryBlack"
+              done={page.properties.Done.checkbox}
+            />
+          ))}
         </ScrollView>
       </LinearGradient>
     </Container>
