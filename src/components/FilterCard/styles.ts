@@ -15,6 +15,10 @@ const CardText = styled.Text`
 
 export const SelectedContainer = styled(Container)`
   background-color: #000;
+  border-bottom-color: #73A9E9;
+  border-bottom-width: 4px;
+  border-right-color: #73A9E9;
+  border-right-width: 4px;
 `
 
 export const SelectedCardText = styled(CardText)`
@@ -23,7 +27,10 @@ export const SelectedCardText = styled(CardText)`
 
 export const NotSelectedContainer = styled(Container)`
   background-color: #fff;
-  box-shadow: 10px 5px 5px black;
+  border-bottom-color: #f2f2f2;
+  border-bottom-width: 4px;
+  border-right-color: #f2f2f2;
+  border-right-width: 4px;
 `
 
 export const NotSelectedCardText = styled(CardText)`
