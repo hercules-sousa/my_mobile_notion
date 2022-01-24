@@ -1,9 +1,14 @@
 import { observer } from "mobx-react";
+import { useEffect } from "react";
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import FinancialControllerStore from "../../stores/FinancialControllerStore";
 
 const ControleFinanceiro = observer(() => {
+  useEffect(() => {
+    FinancialControllerStore.setPeriod("All");
+  }, []);
+
   return (
     <View
       style={{

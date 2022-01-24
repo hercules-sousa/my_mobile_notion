@@ -3,12 +3,11 @@ import { makeObservable, observable, action } from "mobx"
 class FinancialControllerStore {
   period = ""
 
-  constructor(period: string) {
+  constructor() {
       makeObservable(this, {
         period: observable,
         setPeriod: action
       })
-      this.period = period
   }
 
   setPeriod = (period: string) => {
@@ -16,4 +15,4 @@ class FinancialControllerStore {
   }
 }
 
-export default new FinancialControllerStore("Teste")
+export default new FinancialControllerStore()

@@ -1,3 +1,4 @@
+import { NotionAuth } from '../mock';
 import { Client } from '@notionhq/client/build/src';
 
 abstract class ServiceBase {
@@ -6,10 +7,12 @@ abstract class ServiceBase {
 
   constructor(databaseId: string) {
     this.notion = new Client({
-      auth: 'secret_cBSv3LS52GO9yTeKKJhYjkNDeTG1ORJHJ8dPL6CbHZt',
+      auth: NotionAuth,
     });
     this.databaseId = databaseId;
   }
+
+  abstract list(): Promise<Record<string, unknown>>
 }
 
 export default ServiceBase
