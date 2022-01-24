@@ -1,19 +1,32 @@
 import { makeObservable, observable, action } from "mobx"
 
 class TodayPageStore {
+  pages: Record<string, unknown>[] = []
+
   selectedFilterCard = ""
 
-  constructor(selectedFilterCard: string) {
+  service = null
+
+  constructor() {
       makeObservable(this, {
+          pages: observable,
+          setPages: action,
           selectedFilterCard: observable,
           setSelectedFilterCard: action
       })
-      this.selectedFilterCard = selectedFilterCard
+  }
+
+  setPages(pages: Array<Record<string, string>>) {
+    this.pages = pages;
   }
 
   setSelectedFilterCard(selectedFilterCard: string) {
       this.selectedFilterCard = selectedFilterCard
   }
+
+  setService(service: any) {
+      this.service = service;
+  }
 }
 
-export default new TodayPageStore("");
+export default new TodayPageStore();
