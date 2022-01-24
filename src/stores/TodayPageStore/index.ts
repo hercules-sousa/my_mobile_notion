@@ -16,4 +16,4 @@ class TodayPageStore {
   }
 }
 
-export default TodayPageStore;
+export default new TodayPageStore("");
