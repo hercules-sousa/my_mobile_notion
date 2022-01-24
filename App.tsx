@@ -4,7 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
 import TodayPage from "./src/pages/TodayPage";
-import ControleFinanceiro from "./src/pages/ControleFinanceiro";
+import FinancialControllerPage from "./src/pages/FinancialControllerPage";
 
 const Drawer = createDrawerNavigator();
 
@@ -27,8 +27,8 @@ function MyDrawer() {
     >
       <Drawer.Screen name="Today" component={TodayPage} />
       <Drawer.Screen
-        name="Controle Financeiro"
-        component={ControleFinanceiro}
+        name="Financial Controller"
+        component={FinancialControllerPage}
       />
     </Drawer.Navigator>
   );

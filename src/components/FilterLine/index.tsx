@@ -10,7 +10,11 @@ interface FilterCardProps {
   color: string;
 }
 
-function FilterLine() {
+function FilterLine({
+  handleClickOnFilterCard,
+}: {
+  handleClickOnFilterCard: () => void;
+}) {
   const [selectedFilterCard, setSelectedFilterCard] = useState<string>();
   const [filterCards, setFilterCards] = useState<Array<FilterCardProps>>();
 
@@ -19,9 +23,11 @@ function FilterLine() {
     setFilterCards(filterCardsMock);
   }, []);
 
+  /*
   function handleClickOnFilterCard(cardName: string) {
     setSelectedFilterCard(cardName);
   }
+  */
 
   return (
     <Container>
