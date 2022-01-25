@@ -1,4 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { observer } from "mobx-react";
 import { useEffect } from "react";
 import { ScrollView, Text } from "react-native";
 
@@ -14,7 +15,7 @@ import {
   HeaderTitleContainer,
 } from "./styles";
 
-function TodayPage() {
+const TodayPage = observer(() => {
   useEffect(() => {
     TodayPageStore.list();
   }, []);
@@ -56,6 +57,6 @@ function TodayPage() {
       </LinearGradient>
     </Container>
   );
-}
+});
 
 export default TodayPage;

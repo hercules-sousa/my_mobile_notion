@@ -28,14 +28,14 @@ class TodayPageStore {
           pages: observable,
           setPages: action,
           selectedFilterCard: observable,
-          setSelectedFilterCard: action
+          setSelectedFilterCard: action,
       })
       this.service = new TodayPageService()
   }
 
   async list(): Promise<void> {
     const pages = await this.service.list()
-    console.log(this.service.list())
+    console.log(pages)
     this.setPages(pages)
   }
 

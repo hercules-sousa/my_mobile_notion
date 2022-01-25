@@ -23,14 +23,11 @@ function PageCard({
         <View
           style={{
             flex: 1,
-            backgroundColor: "blue",
             alignItems: "flex-start",
             justifyContent: "center",
           }}
         >
-          <Text style={{ color: "white", textAlign: "center" }}>
-            {activityName}
-          </Text>
+          <Text style={{ color: "white" }}>{activityName}</Text>
         </View>
       </View>
     </Container>
