@@ -3,7 +3,8 @@ import TodayPageService from "../../services/TodayPageService"
 import { NotionCheckboxProps, NotionDateProps, NotionMultiSelectProps, NotionNumberProps, NotionTitleProps } from "../../types/NotionTypes"
 
 interface TodayPageServiceProps {
-    list: Function
+    list: Function;
+    check: Function;
 }
 interface PagesProps {
   id: string;
@@ -35,8 +36,12 @@ class TodayPageStore {
 
   async list(): Promise<void> {
     const pages = await this.service.list()
-    console.log(pages)
     this.setPages(pages)
+  }
+
+  async check(pageId: string, done: boolean) {
+    await this.service.check(pageId, done);
+    this.list()
   }
 
   setPages(pages: Array<PagesProps>): void {

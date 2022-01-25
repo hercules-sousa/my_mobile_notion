@@ -48,6 +48,7 @@ const TodayPage = observer(() => {
           {TodayPageStore.pages.map((page) => (
             <PageCard
               key={page.id}
+              pageId={page.id}
               activityName={page.properties.Name.title[0].text.content}
               backgroundColor="primaryBlack"
               done={page.properties.Done.checkbox}

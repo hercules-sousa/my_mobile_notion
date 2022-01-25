@@ -26,6 +26,18 @@ class TodayPageService extends ServiceBase {
       return [];
     }
   }
+
+  async check(pageId: string, done: boolean) {
+    const id = pageId;
+    const response = await this.notion.pages.update({
+      page_id: id,
+      properties: {
+        'Done': {
+          checkbox: !done,
+        },
+      },
+    });
+  }
 }
 
 export default TodayPageService
