@@ -1,11 +1,27 @@
 import { makeObservable, observable, action } from "mobx"
+import TodayPageService from "../../services/TodayPageService"
+import { NotionCheckboxProps, NotionDateProps, NotionMultiSelectProps, NotionNumberProps, NotionTitleProps } from "../../types/NotionTypes"
 
+interface TodayPageServiceProps {
+    list: Function
+}
+interface PagesProps {
+  id: string;
+  properties: {
+    Date: NotionDateProps;
+    Time: NotionNumberProps;
+    Tipo: NotionMultiSelectProps;
+    Page: NotionMultiSelectProps;
+    Done: NotionCheckboxProps;
+    Name: NotionTitleProps;
+  };
+}
 class TodayPageStore {
-  pages: Record<string, unknown>[] = []
+  pages: PagesProps[] = []
 
   selectedFilterCard = ""
 
-  service = null
+  service: TodayPageServiceProps
 
   constructor() {
       makeObservable(this, {
@@ -14,17 +30,24 @@ class TodayPageStore {
           selectedFilterCard: observable,
           setSelectedFilterCard: action
       })
+      this.service = new TodayPageService()
   }
 
-  setPages(pages: Array<Record<string, string>>) {
+  async list(): Promise<void> {
+    const pages = await this.service.list()
+    console.log(this.service.list())
+    this.setPages(pages)
+  }
+
+  setPages(pages: Array<PagesProps>): void {
     this.pages = pages;
   }
 
-  setSelectedFilterCard(selectedFilterCard: string) {
+  setSelectedFilterCard(selectedFilterCard: string): void {
       this.selectedFilterCard = selectedFilterCard
   }
 
-  setService(service: any) {
+  setService(service: any): void {
       this.service = service;
   }
 }

@@ -7,7 +7,7 @@ class TodayPageService extends ServiceBase {
     super(TodayPageDatabaseId)
   }
 
-  async list() {
+  async list(): Promise<Record<string, string>[]> {
     const todayDate = moment().format('YYYY-MM-DD');
 
     try {
@@ -23,7 +23,9 @@ class TodayPageService extends ServiceBase {
       return results;
     } catch (error: any) {
       console.log(error.body);
-      return {};
+      return [];
     }
   }
 }
+
+export default TodayPageService

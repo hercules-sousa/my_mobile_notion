@@ -1,10 +1,12 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { useEffect } from "react";
 import { ScrollView, Text } from "react-native";
 
 import FilterLine from "../../components/FilterLine";
 import PageCard from "../../components/PageCard";
 import { theme } from "../../globalStyle";
 import { TodayPages } from "../../mock";
+import TodayPageStore from "../../stores/TodayPageStore";
 import {
   Container,
   FilterLineContainer,
@@ -13,6 +15,10 @@ import {
 } from "./styles";
 
 function TodayPage() {
+  useEffect(() => {
+    TodayPageStore.list();
+  }, []);
+
   return (
     <Container>
       <HeaderContainer>
@@ -22,9 +28,7 @@ function TodayPage() {
           <Text style={{ fontSize: 40, fontWeight: "bold" }}>Do your best</Text>
         </HeaderTitleContainer>
 
-        <FilterLineContainer>
-          <FilterLine />
-        </FilterLineContainer>
+        <FilterLineContainer></FilterLineContainer>
       </HeaderContainer>
 
       <LinearGradient
@@ -40,7 +44,7 @@ function TodayPage() {
         }}
       >
         <ScrollView contentContainerStyle={{ alignItems: "center" }}>
-          {TodayPages.map((page) => (
+          {TodayPageStore.pages.map((page) => (
             <PageCard
               key={page.id}
               activityName={page.properties.Name.title[0].text.content}

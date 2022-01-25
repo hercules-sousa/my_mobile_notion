@@ -12,7 +12,7 @@ abstract class ServiceBase {
     this.databaseId = databaseId;
   }
 
-  abstract list(): Promise<Record<string, unknown>>
+  abstract list(): Promise<Array<Record<string, unknown>>>
 }
 
 export default ServiceBase
