@@ -20,7 +20,6 @@ function PageCard({
       <View
         style={{
           flexDirection: "row",
-          alignContent: "center",
         }}
       >
         <TouchableOpacity
@@ -34,11 +33,13 @@ function PageCard({
             color={done ? "#1C5EF9" : "#fff"}
           />
         </TouchableOpacity>
+
         <View
           style={{
             flex: 1,
             alignItems: "flex-start",
             justifyContent: "center",
+            marginLeft: 8,
           }}
         >
           <Text style={{ color: "white" }}>{activityName}</Text>
