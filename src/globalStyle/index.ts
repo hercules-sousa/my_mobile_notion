@@ -24,5 +24,24 @@ export const theme = {
 
   pageCardColors: {
     borderColor: "#0888CF"
-  }
+  },
+
+  primary: "#FE254D",
+  primaryDarkVariant: "#E4002A",
+  primaryLightVariant: "#F88E99",
+  unselectedCardBackground: "#402A2D",
+  secondary: "#25FED6",
+  secondaryDarkVariant: "#00C285",
+  background: "#121212",
+  surface: "#202024",
+  surfaceLight: "#37373E",
+  error: "#C70016",
+  onPrimary: "#FFFFFF",
+  onSecondary: "#000000",
+  onSecondaryDarkVariant: "#FFFFFF",
+  onError: "#FFFFFF",
+  onBackground: "#FFFFFF",
+  onBackgroundDark: "#B6B6B6",
+  onSurface: "#FAFAFA",
+  onSurfaceDark: "#B6B6B6",
 }
