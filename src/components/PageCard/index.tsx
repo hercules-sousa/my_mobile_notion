@@ -3,6 +3,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import TodayPageStore from "../../stores/TodayPageStore";
+import CheckboxChecked from "../../assets/svg/Checkbox-checked.svg";
+import CheckboxUnchecked from "../../assets/svg/Checkbox-unchecked.svg";
 
 function PageCard({
   pageId,
@@ -27,11 +29,11 @@ function PageCard({
             TodayPageStore.check(pageId, done);
           }}
         >
-          <Ionicons
-            name="checkbox"
-            size={32}
-            color={done ? "#1C5EF9" : "#fff"}
-          />
+          {done ? (
+            <CheckboxChecked width={32} height={32} />
+          ) : (
+            <CheckboxUnchecked width={32} height={32} />
+          )}
         </TouchableOpacity>
 
         <View

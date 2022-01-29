@@ -50,7 +50,7 @@ const TodayPage = observer(() => {
               key={page.id}
               pageId={page.id}
               activityName={page.properties.Name.title[0].text.content}
-              backgroundColor="primaryBlack"
+              backgroundColor="surface"
               done={page.properties.Done.checkbox}
             />
           ))}
