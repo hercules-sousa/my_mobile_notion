@@ -47,8 +47,11 @@ function MyDrawer() {
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    "Playfair-Display": require("./assets/fonts/Playfair-Display.otf"),
-    Poppins: require("./assets/fonts/Poppins.otf"),
+    PlayfairDisplay_700Bold,
+    PlayfairDisplay_600SemiBold,
+    Poppins_500Medium,
+    Poppins_400Regular,
+    Poppins_600SemiBold,
   });
 
   if (!fontsLoaded) {
