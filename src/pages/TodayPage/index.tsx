@@ -3,10 +3,8 @@ import { observer } from "mobx-react";
 import { useEffect } from "react";
 import { ScrollView, Text } from "react-native";
 
-import FilterLine from "../../components/FilterLine";
 import PageCard from "../../components/PageCard";
 import { theme } from "../../globalStyle";
-import { TodayPages } from "../../mock";
 import TodayPageStore from "../../stores/TodayPageStore";
 import {
   Container,
