@@ -1,9 +1,7 @@
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-import { View } from "react-native";
 import Paragraph from "../Paragraph";
-import { Container } from "./styles";
-import { theme } from "../../globalStyle";
+import { ActivityNameContainer, Container, FirstRowContainer } from "./styles";
 import TodayPageStore from "../../stores/TodayPageStore";
 import CheckboxChecked from "../../assets/svg/Checkbox-checked.svg";
 import CheckboxUnchecked from "../../assets/svg/Checkbox-unchecked.svg";
@@ -13,19 +11,21 @@ function PageCard({
   backgroundColor,
   done,
   activityName,
+  pageTags,
 }: {
   pageId: string;
   backgroundColor: string;
   done: boolean;
   activityName: string;
+  pageTags: Array<{
+    id: string;
+    color: string;
+    name: string;
+  }>;
 }) {
   return (
     <Container backgroundColor={backgroundColor}>
-      <View
-        style={{
-          flexDirection: "row",
-        }}
-      >
+      <FirstRowContainer>
         <TouchableOpacity
           onPress={() => {
             TodayPageStore.check(pageId, done);
@@ -38,17 +38,10 @@ function PageCard({
           )}
         </TouchableOpacity>
 
-        <View
-          style={{
-            flex: 1,
-            alignItems: "flex-start",
-            justifyContent: "center",
-            marginLeft: 8,
-          }}
-        >
+        <ActivityNameContainer>
           <Paragraph color="onSurface">{activityName}</Paragraph>
-        </View>
-      </View>
+        </ActivityNameContainer>
+      </FirstRowContainer>
     </Container>
   );
 }

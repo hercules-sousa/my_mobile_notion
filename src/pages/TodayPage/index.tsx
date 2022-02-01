@@ -47,6 +47,7 @@ const TodayPage = observer(() => {
               activityName={page.properties.Name.title[0].text.content}
               backgroundColor="surface"
               done={page.properties.Done.checkbox}
+              pageTags={page.properties.Page.multi_select}
             />
           ))}
         </ScrollView>
