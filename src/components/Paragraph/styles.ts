@@ -1,30 +1,7 @@
 import styled from 'styled-components/native';
+
 import { theme } from '../../globalStyle';
-
-interface TextContainerProps {
-  color: string;
-}
-
-type ColorProps = {
-  primary: string;
-  primaryDarkVariant: string;
-  primaryLightVariant: string;
-  unselectedCardBackground: string;
-  secondary: string;
-  secondaryDarkVariant: string;
-  background: string;
-  surface: string;
-  surfaceLight: string;
-  error: string;
-  onPrimary: string;
-  onSecondary: string;
-  onSecondaryDarkVariant: string;
-  onError: string;
-  onBackground: string;
-  onBackgroundDark: string;
-  onSurface: string;
-  onSurfaceDark: string;
-}
+import { TextContainerProps } from './types';
 
 export const TextContainer = styled.Text<TextContainerProps>`
   font-family: "Poppins_400Regular";

@@ -1,11 +1,12 @@
-import { Container } from "./styles";
-import { Ionicons } from "@expo/vector-icons";
-import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+
+import { View } from "react-native";
+import Paragraph from "../Paragraph";
+import { Container } from "./styles";
+import { theme } from "../../globalStyle";
 import TodayPageStore from "../../stores/TodayPageStore";
 import CheckboxChecked from "../../assets/svg/Checkbox-checked.svg";
 import CheckboxUnchecked from "../../assets/svg/Checkbox-unchecked.svg";
-import { theme } from "../../globalStyle";
 
 function PageCard({
   pageId,
@@ -45,15 +46,7 @@ function PageCard({
             marginLeft: 8,
           }}
         >
-          <Text
-            style={{
-              color: theme.onSurface,
-              fontFamily: "Poppins_400Regular",
-              fontSize: 14,
-            }}
-          >
-            {activityName}
-          </Text>
+          <Paragraph color="onSurface">{activityName}</Paragraph>
         </View>
       </View>
     </Container>
