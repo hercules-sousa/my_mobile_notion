@@ -7,7 +7,7 @@ interface ViewExtended {
 
 export const Container = styled.View<ViewExtended>`
   flex: 1;
-  background-color: ${({ backgroundColor }) => backgroundColor || theme.todayPageColors.defaultBackgroundColor};
+  background-color: ${({ backgroundColor }) => backgroundColor || theme.onBackground};
 `;
 
 export const HeaderContainer = styled.View`
@@ -17,9 +17,9 @@ export const HeaderContainer = styled.View`
 
 export const HeaderTitleContainer = styled.View`
   padding: 16px;
-  border-bottom-color: ${theme.todayPageColors.headerTitleContainerShadowColor};
+  border-bottom-color: ${theme.background};
   border-bottom-width: 4px;
-  border-right-color: ${theme.todayPageColors.headerTitleContainerShadowColor};
+  border-right-color: ${theme.primary};
   border-right-width: 4px;
   margin: 32px 16px 0px 16px;
   border-radius: 34px;

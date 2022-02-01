@@ -16,14 +16,14 @@ type ColorProps = {
   surface: string;
   surfaceLight: string;
   error: string;
-  onPrimary: "#FFFFFF",
-  onSecondary: "#000000",
-  onSecondaryDarkVariant: "#FFFFFF",
-  onError: "#FFFFFF",
-  onBackground: "#FFFFFF",
-  onBackgroundDark: "#B6B6B6",
-  onSurface: "#FAFAFA",
-  onSurfaceDark: "#B6B6B6",
+  onPrimary: string;
+  onSecondary: string;
+  onSecondaryDarkVariant: string;
+  onError: string;
+  onBackground: string;
+  onBackgroundDark: string;
+  onSurface: string;
+  onSurfaceDark: string;
 }
 
 export const TextContainer = styled.Text<TextContainerProps>`
@@ -31,7 +31,6 @@ export const TextContainer = styled.Text<TextContainerProps>`
   font-size: 14px;
   font-weight: 400;
   color: ${({ color }) => {
-    type ColorKey = keyof typeof color;
-    return theme[color as ColorKey]
+    return (theme as Record<string, string>)[color]
   }};
 `;

@@ -31,10 +31,7 @@ const TodayPage = observer(() => {
       </HeaderContainer>
 
       <LinearGradient
-        colors={[
-          theme.todayPageColors.darkLinearGradientColor,
-          theme.todayPageColors.lightLinearGradientColor,
-        ]}
+        colors={[theme.primaryDarkVariant, theme.primary]}
         style={{
           flex: 1,
           padding: 16,

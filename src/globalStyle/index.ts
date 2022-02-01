@@ -15,17 +15,6 @@ export const notionColors = {
 };
 
 export const theme = {
-  todayPageColors: {
-    defaultBackgroundColor: "#FFF",
-    darkLinearGradientColor: "#002968",
-    lightLinearGradientColor: "#0BA9F2",
-    headerTitleContainerShadowColor: "#F2F2F2"
-  },
-
-  pageCardColors: {
-    borderColor: "#0888CF"
-  },
-
   primary: "#FE254D",
   primaryDarkVariant: "#E4002A",
   primaryLightVariant: "#F88E99",
