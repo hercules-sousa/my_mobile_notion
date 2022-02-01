@@ -22,21 +22,36 @@ const TodayPage = observer(() => {
     <Container>
       <HeaderContainer>
         <HeaderTitleContainer>
-          <Text style={{ fontSize: 24 }}>Today's activities</Text>
-
-          <Text style={{ fontSize: 40, fontWeight: "bold" }}>Do your best</Text>
+          <Text
+            style={{
+              fontSize: 34,
+              fontFamily: "PlayfairDisplay_700Bold",
+              color: theme.onBackground,
+              lineHeight: 48,
+              textAlign: "left",
+            }}
+          >
+            Welcome back
+          </Text>
         </HeaderTitleContainer>
 
         <FilterLineContainer></FilterLineContainer>
       </HeaderContainer>
 
       <LinearGradient
-        colors={[theme.primaryDarkVariant, theme.primary]}
+        colors={[theme.primary, theme.primaryDarkVariant]}
+        style={{
+          height: 100,
+          padding: 8,
+          borderRadius: 16,
+        }}
+      ></LinearGradient>
+
+      <LinearGradient
+        colors={[theme.background, theme.background]}
         style={{
           flex: 1,
-          padding: 16,
-          borderTopLeftRadius: 24,
-          borderTopRightRadius: 24,
+          paddingVertical: 16,
         }}
       >
         <ScrollView contentContainerStyle={{ alignItems: "center" }}>

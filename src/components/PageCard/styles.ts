@@ -13,7 +13,7 @@ export const Container = styled.TouchableOpacity<TouchableOpacityExtended>`
     return color;
     }};
   height: 140px;
-  width: 90%;
+  width: 100%;
   margin-top: 16px;
   border-radius: 16px;
   border: 1px solid ${theme.surfaceLight};
