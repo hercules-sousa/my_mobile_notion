@@ -47,10 +47,10 @@ function MyDrawer() {
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    PlayfairDisplay_700Bold,
     PlayfairDisplay_600SemiBold,
-    Poppins_500Medium,
+    PlayfairDisplay_700Bold,
     Poppins_400Regular,
+    Poppins_500Medium,
     Poppins_600SemiBold,
   });
 

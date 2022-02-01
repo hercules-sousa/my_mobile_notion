@@ -5,6 +5,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import TodayPageStore from "../../stores/TodayPageStore";
 import CheckboxChecked from "../../assets/svg/Checkbox-checked.svg";
 import CheckboxUnchecked from "../../assets/svg/Checkbox-unchecked.svg";
+import { theme } from "../../globalStyle";
 
 function PageCard({
   pageId,
@@ -44,7 +45,15 @@ function PageCard({
             marginLeft: 8,
           }}
         >
-          <Text style={{ color: "white" }}>{activityName}</Text>
+          <Text
+            style={{
+              color: theme.onSurface,
+              fontFamily: "Poppins_400Regular",
+              fontSize: 14,
+            }}
+          >
+            {activityName}
+          </Text>
         </View>
       </View>
     </Container>
