@@ -29,3 +29,8 @@ export const ActivityNameContainer = styled.View`
 export const FirstRowContainer = styled.View`
   flex-direction: row;
 `;
+
+export const SecondRowContainer = styled.View`
+  background-color: #101010;
+  height: 40%;
+`

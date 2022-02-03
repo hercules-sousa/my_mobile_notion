@@ -1,7 +1,12 @@
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 
 import Paragraph from "../Paragraph";
-import { ActivityNameContainer, Container, FirstRowContainer } from "./styles";
+import {
+  ActivityNameContainer,
+  Container,
+  FirstRowContainer,
+  SecondRowContainer,
+} from "./styles";
 import TodayPageStore from "../../stores/TodayPageStore";
 import CheckboxChecked from "../../assets/svg/Checkbox-checked.svg";
 import CheckboxUnchecked from "../../assets/svg/Checkbox-unchecked.svg";
@@ -42,6 +47,9 @@ function PageCard({
           <Paragraph color="onSurface">{activityName}</Paragraph>
         </ActivityNameContainer>
       </FirstRowContainer>
+      <SecondRowContainer>
+        <ScrollView horizontal={true}></ScrollView>
+      </SecondRowContainer>
     </Container>
   );
 }

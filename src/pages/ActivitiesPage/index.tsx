@@ -1,7 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { observer } from "mobx-react";
 import { useEffect } from "react";
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import Headline1 from "../../components/Headline1";
 
 import PageCard from "../../components/PageCard";
@@ -23,7 +23,7 @@ const ActivitiesPage = observer(() => {
     <Container>
       <HeaderContainer>
         <HeaderTitleContainer>
-          <Headline1 textColor={"onBackground"}>Welcome back</Headline1>
+          <Headline1 color={"onBackground"}>Welcome back</Headline1>
         </HeaderTitleContainer>
 
         <FilterLineContainer></FilterLineContainer>
@@ -58,6 +58,17 @@ const ActivitiesPage = observer(() => {
           ))}
         </ScrollView>
       </LinearGradient>
+
+      <View
+        style={{
+          backgroundColor: "white",
+          position: "absolute",
+          bottom: "20%",
+          left: "50%",
+        }}
+      >
+        <Text>adsfsadf</Text>
+      </View>
     </Container>
   );
 });
