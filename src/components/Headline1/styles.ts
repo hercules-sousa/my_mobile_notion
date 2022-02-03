@@ -5,7 +5,7 @@ import { TextContainerProps } from './types';
 
 export const TextContainer = styled.Text<TextContainerProps>`
   font-family: "PlayfairDisplay_700Bold";
-  font-size: 34;
-  line-height: 48;
+  font-size: 34px;
+  line-height: 48px;
   color: ${({ textColor }) => (theme as Record<string, string>)[textColor]}
 `;

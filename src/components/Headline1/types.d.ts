@@ -3,6 +3,6 @@ export interface TextContainerProps {
 }
 
 export interface Headline1Props {
-  color: string;
+  textColor: string;
   children: React.ReactNode;
 }

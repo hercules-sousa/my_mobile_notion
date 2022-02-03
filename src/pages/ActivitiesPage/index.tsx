@@ -2,6 +2,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { observer } from "mobx-react";
 import { useEffect } from "react";
 import { ScrollView, Text } from "react-native";
+import Headline1 from "../../components/Headline1";
 
 import PageCard from "../../components/PageCard";
 import { theme } from "../../globalStyle";
@@ -22,17 +23,7 @@ const ActivitiesPage = observer(() => {
     <Container>
       <HeaderContainer>
         <HeaderTitleContainer>
-          <Text
-            style={{
-              fontSize: 34,
-              fontFamily: "PlayfairDisplay_700Bold",
-              color: theme.onBackground,
-              lineHeight: 48,
-              textAlign: "left",
-            }}
-          >
-            Welcome back
-          </Text>
+          <Headline1 textColor={"onBackground"}>Welcome back</Headline1>
         </HeaderTitleContainer>
 
         <FilterLineContainer></FilterLineContainer>
