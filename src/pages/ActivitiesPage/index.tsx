@@ -13,7 +13,7 @@ import {
   HeaderTitleContainer,
 } from "./styles";
 
-const TodayPage = observer(() => {
+const ActivitiesPage = observer(() => {
   useEffect(() => {
     TodayPageStore.list();
   }, []);
@@ -71,4 +71,4 @@ const TodayPage = observer(() => {
   );
 });
 
-export default TodayPage;
+export default ActivitiesPage;

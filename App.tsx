@@ -14,7 +14,7 @@ import {
   Poppins_600SemiBold,
 } from "@expo-google-fonts/poppins";
 
-import TodayPage from "./src/pages/TodayPage";
+import ActivitiesPage from "./src/pages/ActivitiesPage";
 import FinancialControllerPage from "./src/pages/FinancialControllerPage";
 
 const Drawer = createDrawerNavigator();
@@ -36,7 +36,7 @@ function MyDrawer() {
         headerTransparent: true,
       }}
     >
-      <Drawer.Screen name="Today" component={TodayPage} />
+      <Drawer.Screen name="Activities" component={ActivitiesPage} />
       <Drawer.Screen
         name="Financial Controller"
         component={FinancialControllerPage}
