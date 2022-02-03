@@ -1,8 +1,8 @@
 export interface TextContainerProps {
-  textColor: string;
+  color: string;
 }
 
 export interface Headline1Props {
-  textColor: string;
+  color: string;
   children: React.ReactNode;
 }
