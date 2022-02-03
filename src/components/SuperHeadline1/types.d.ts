@@ -1,4 +1,4 @@
-export interface MiniParagraphProps {
+export interface SuperHeadline1Props {
   color: string;
   children: React.ReactNode
 }
