@@ -1,17 +1,18 @@
-import { TextInput } from "react-native";
 import Headline1 from "../../components/Headline1";
 import Input from "../../components/Input";
-import { theme } from "../../globalStyle";
+import NotionButton from "../../components/NotionButton";
 import { Container, HeadlineTitleContainer } from "./styles";
 
 const SettingsPage = () => {
   return (
     <Container>
-      <HeadlineTitleContainer style={{ backgroundColor: "red" }}>
+      <HeadlineTitleContainer>
         <Headline1 color="onBackground">Settings</Headline1>
       </HeadlineTitleContainer>
 
       <Input />
+
+      <NotionButton text="Save Settings" isSecondary />
     </Container>
   );
 };
