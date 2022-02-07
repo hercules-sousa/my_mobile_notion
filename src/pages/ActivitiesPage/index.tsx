@@ -58,17 +58,6 @@ const ActivitiesPage = observer(() => {
           ))}
         </ScrollView>
       </LinearGradient>
-
-      <View
-        style={{
-          backgroundColor: "white",
-          position: "absolute",
-          bottom: "20%",
-          left: "50%",
-        }}
-      >
-        <Text>adsfsadf</Text>
-      </View>
     </Container>
   );
 });

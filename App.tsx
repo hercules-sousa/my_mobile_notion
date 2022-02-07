@@ -16,6 +16,7 @@ import {
 
 import ActivitiesPage from "./src/pages/ActivitiesPage";
 import FinancialControllerPage from "./src/pages/FinancialControllerPage";
+import SettingsPage from "./src/pages/SettingsPage";
 
 const Drawer = createDrawerNavigator();
 
@@ -41,6 +42,7 @@ function MyDrawer() {
         name="Financial Controller"
         component={FinancialControllerPage}
       />
+      <Drawer.Screen name="Settings" component={SettingsPage} />
     </Drawer.Navigator>
   );
 }
