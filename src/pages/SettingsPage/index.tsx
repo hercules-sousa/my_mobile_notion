@@ -7,7 +7,7 @@ import { Container, HeadlineTitleContainer } from "./styles";
 const SettingsPage = () => {
   return (
     <Container>
-      <HeadlineTitleContainer>
+      <HeadlineTitleContainer style={{ backgroundColor: "red" }}>
         <Headline1 color="onBackground">Settings</Headline1>
       </HeadlineTitleContainer>
 
