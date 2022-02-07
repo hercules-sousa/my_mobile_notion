@@ -29,7 +29,12 @@ const SettingsPage = () => {
         </View>
       </InputsContainer>
       <NotionButtonContainer>
-        <NotionButton text="Save Settings" />
+        <NotionButton
+          text="Save Settings"
+          onPress={() => {
+            alert("Clickado");
+          }}
+        />
       </NotionButtonContainer>
     </Container>
   );
