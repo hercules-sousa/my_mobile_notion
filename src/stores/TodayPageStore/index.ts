@@ -1,5 +1,5 @@
 import { makeObservable, observable, action } from "mobx"
-import TodayPageService from "../../services/TodayPageService"
+import TodayPageService from "../../services/ActivitiesPageService"
 import { NotionCheckboxProps, NotionDateProps, NotionMultiSelectProps, NotionNumberProps, NotionTitleProps } from "../../types/NotionTypes"
 
 interface TodayPageServiceProps {

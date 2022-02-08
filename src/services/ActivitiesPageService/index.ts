@@ -2,7 +2,7 @@ import moment from "moment";
 import { TodayPageDatabaseId } from "../../mock";
 import ServiceBase from "../ServiceBase";
 
-class TodayPageService extends ServiceBase {
+class ActivitiesPageService extends ServiceBase {
   constructor() {
     super(TodayPageDatabaseId)
   }
@@ -40,4 +40,4 @@ class TodayPageService extends ServiceBase {
   }
 }
 
-export default TodayPageService
+export default ActivitiesPageService

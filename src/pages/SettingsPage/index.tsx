@@ -26,7 +26,7 @@ async function getValueFor(key: string): Promise<void> {
   }
 }
 
-const SettingsPage = observer(() => {
+const ControleFinanceiro = observer(() => {
   return (
     <Container>
       <HeadlineTitleContainer>
@@ -44,8 +44,8 @@ const SettingsPage = observer(() => {
         <View>
           <Headline3 color="onBackground">Activity Database ID</Headline3>
           <Input
-            value={SettingsStore.notionAuthentication}
-            onChangeText={() => console.log("Opa")}
+            value={SettingsStore.activitiesDatabaseId}
+            onChangeText={(text) => SettingsStore.setActivitiesDatabaseId(text)}
           />
         </View>
       </InputsContainer>
@@ -53,12 +53,14 @@ const SettingsPage = observer(() => {
         <NotionButton
           text="Save Settings"
           onPress={() => {
-            alert("Clickado");
+            save("notionAuthentication", SettingsStore.notionAuthentication);
+            save("activitiesDatabaseId", SettingsStore.activitiesDatabaseId);
           }}
+          isSecondary
         />
       </NotionButtonContainer>
     </Container>
   );
 });
 
-export default SettingsPage;
+export default ControleFinanceiro;
