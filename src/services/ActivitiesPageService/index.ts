@@ -1,10 +1,10 @@
 import moment from "moment";
-import { TodayPageDatabaseId } from "../../mock";
+import { getValueFor } from "../../utils";
 import ServiceBase from "../ServiceBase";
 
 class ActivitiesPageService extends ServiceBase {
   constructor() {
-    super(TodayPageDatabaseId)
+    super(getValueFor("activitiesDatabaseId") as unknown as string)
   }
 
   async list(): Promise<Record<string, string>[]> {

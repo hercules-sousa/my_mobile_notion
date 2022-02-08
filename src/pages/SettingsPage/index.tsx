@@ -1,5 +1,4 @@
 import { View } from "react-native";
-import * as SecureStore from "expo-secure-store";
 import Headline1 from "../../components/Headline1";
 import Headline3 from "../../components/Headline3";
 import Input from "../../components/Input";
@@ -12,19 +11,7 @@ import {
 } from "./styles";
 import { observer } from "mobx-react";
 import SettingsStore from "../../stores/SettingsStore";
-
-async function save(key: string, value: string): Promise<void> {
-  await SecureStore.setItemAsync(key, value);
-}
-
-async function getValueFor(key: string): Promise<void> {
-  let result = await SecureStore.getItemAsync(key);
-  if (result) {
-    alert("🔐 Here's your value 🔐 \n" + result);
-  } else {
-    alert("No values stored under that key.");
-  }
-}
+import { saveDataInSecureStorage } from "../../utils";
 
 const ControleFinanceiro = observer(() => {
   return (
@@ -53,8 +40,14 @@ const ControleFinanceiro = observer(() => {
         <NotionButton
           text="Save Settings"
           onPress={() => {
-            save("notionAuthentication", SettingsStore.notionAuthentication);
-            save("activitiesDatabaseId", SettingsStore.activitiesDatabaseId);
+            saveDataInSecureStorage(
+              "notionAuthentication",
+              SettingsStore.notionAuthentication
+            );
+            saveDataInSecureStorage(
+              "activitiesDatabaseId",
+              SettingsStore.activitiesDatabaseId
+            );
           }}
           isSecondary
         />

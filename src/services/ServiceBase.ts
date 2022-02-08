@@ -1,5 +1,6 @@
 import { NotionAuth } from '../mock';
 import { Client } from '@notionhq/client/build/src';
+import { getValueFor } from '../utils';
 
 abstract class ServiceBase {
   notion: any;
@@ -7,7 +8,7 @@ abstract class ServiceBase {
 
   constructor(databaseId: string) {
     this.notion = new Client({
-      auth: NotionAuth,
+      auth: getValueFor("notionAuthentication") as unknown as string,
     });
     this.databaseId = databaseId;
   }
