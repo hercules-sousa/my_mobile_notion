@@ -1,17 +1,32 @@
 import { View } from "react-native";
+import * as SecureStore from "expo-secure-store";
 import Headline1 from "../../components/Headline1";
 import Headline3 from "../../components/Headline3";
 import Input from "../../components/Input";
 import NotionButton from "../../components/NotionButton";
-import Paragraph from "../../components/Paragraph";
 import {
   Container,
   HeadlineTitleContainer,
   InputsContainer,
   NotionButtonContainer,
 } from "./styles";
+import { observer } from "mobx-react";
+import SettingsStore from "../../stores/SettingsStore";
 
-const SettingsPage = () => {
+async function save(key: string, value: string): Promise<void> {
+  await SecureStore.setItemAsync(key, value);
+}
+
+async function getValueFor(key: string): Promise<void> {
+  let result = await SecureStore.getItemAsync(key);
+  if (result) {
+    alert("🔐 Here's your value 🔐 \n" + result);
+  } else {
+    alert("No values stored under that key.");
+  }
+}
+
+const SettingsPage = observer(() => {
   return (
     <Container>
       <HeadlineTitleContainer>
@@ -21,11 +36,17 @@ const SettingsPage = () => {
       <InputsContainer>
         <View>
           <Headline3 color="onBackground">Notion Authentication</Headline3>
-          <Input />
+          <Input
+            value={SettingsStore.notionAuthentication}
+            onChangeText={(text) => SettingsStore.setNotionAuthentication(text)}
+          />
         </View>
         <View>
           <Headline3 color="onBackground">Activity Database ID</Headline3>
-          <Input />
+          <Input
+            value={SettingsStore.notionAuthentication}
+            onChangeText={() => console.log("Opa")}
+          />
         </View>
       </InputsContainer>
       <NotionButtonContainer>
@@ -38,6 +59,6 @@ const SettingsPage = () => {
       </NotionButtonContainer>
     </Container>
   );
-};
+});
 
 export default SettingsPage;
