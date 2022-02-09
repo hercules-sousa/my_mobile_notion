@@ -11,7 +11,8 @@ import {
 } from "./styles";
 import { observer } from "mobx-react";
 import SettingsStore from "../../stores/SettingsStore";
-import { saveDataInSecureStorage } from "../../utils";
+import { getValueFor, saveDataInSecureStorage } from "../../utils";
+import TodayPageStore from "../../stores/TodayPageStore";
 
 const ControleFinanceiro = observer(() => {
   return (
@@ -48,6 +49,7 @@ const ControleFinanceiro = observer(() => {
               "activitiesDatabaseId",
               SettingsStore.activitiesDatabaseId
             );
+            TodayPageStore.list();
           }}
           isSecondary
         />

@@ -1,8 +1,8 @@
 import { makeObservable, observable, action } from "mobx"
-import TodayPageService from "../../services/ActivitiesPageService"
+import ActivitiesPageService from "../../services/ActivitiesPageService"
 import { NotionCheckboxProps, NotionDateProps, NotionMultiSelectProps, NotionNumberProps, NotionTitleProps } from "../../types/NotionTypes"
 
-interface TodayPageServiceProps {
+interface ActivitiesPageServiceProps {
     list: Function;
     check: Function;
 }
@@ -17,21 +17,21 @@ interface PagesProps {
     Name: NotionTitleProps;
   };
 }
-class TodayPageStore {
+class ActivitiesPageStore {
   pages: PagesProps[] = []
 
   selectedFilterCard = ""
 
-  service: TodayPageServiceProps
+  service: ActivitiesPageServiceProps
 
   constructor() {
       makeObservable(this, {
-          pages: observable,
-          setPages: action,
-          selectedFilterCard: observable,
-          setSelectedFilterCard: action,
+        pages: observable,
+        setPages: action,
+        selectedFilterCard: observable,
+        setSelectedFilterCard: action,
       })
-      this.service = new TodayPageService()
+      this.service = new ActivitiesPageService()
   }
 
   async list(): Promise<void> {
@@ -57,4 +57,4 @@ class TodayPageStore {
   }
 }
 
-export default new TodayPageStore();
+export default new ActivitiesPageStore();

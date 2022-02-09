@@ -4,7 +4,7 @@ import ServiceBase from "../ServiceBase";
 
 class ActivitiesPageService extends ServiceBase {
   constructor() {
-    super(getValueFor("activitiesDatabaseId") as unknown as string)
+    super("activitiesDatabaseId")
   }
 
   async list(): Promise<Record<string, string>[]> {

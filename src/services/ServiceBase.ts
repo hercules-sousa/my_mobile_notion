@@ -1,16 +1,21 @@
-import { NotionAuth } from '../mock';
 import { Client } from '@notionhq/client/build/src';
 import { getValueFor } from '../utils';
 
 abstract class ServiceBase {
   notion: any;
-  databaseId: string;
+  databaseId: string | undefined;
 
-  constructor(databaseId: string) {
-    this.notion = new Client({
-      auth: getValueFor("notionAuthentication") as unknown as string,
+  constructor(databaseIdKey: string) {
+    getValueFor("notionAuthentication").then(response => {
+      console.log(`Autenticação do notion = ${response}`)
+      this.notion = new Client({
+        auth: response || ""
+      });
     });
-    this.databaseId = databaseId;
+    getValueFor(databaseIdKey).then(response => {
+      console.log(`ID do banco de dados = ${response}`)
+      this.databaseId = response || "";
+    })
   }
 
   abstract list(): Promise<Array<Record<string, unknown>>>
