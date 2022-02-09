@@ -11,8 +11,9 @@ import {
 } from "./styles";
 import { observer } from "mobx-react";
 import SettingsStore from "../../stores/SettingsStore";
-import { getValueFor, saveDataInSecureStorage } from "../../utils";
+import { saveDataInSecureStorage } from "../../utils";
 import TodayPageStore from "../../stores/TodayPageStore";
+import CheckboxChecked from "../../assets/svg/Checkbox-checked.svg";
 
 const ControleFinanceiro = observer(() => {
   return (
@@ -54,6 +55,9 @@ const ControleFinanceiro = observer(() => {
           isSecondary
         />
       </NotionButtonContainer>
+      <View>
+        <CheckboxChecked width={32} height={32} />
+      </View>
     </Container>
   );
 });
