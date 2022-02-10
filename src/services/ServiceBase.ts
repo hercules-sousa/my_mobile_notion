@@ -25,6 +25,7 @@ abstract class ServiceBase {
   }
 
   abstract list(): Promise<Array<Record<string, unknown>>>
+  
 }
 
 export default ServiceBase

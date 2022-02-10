@@ -20,8 +20,16 @@ import {
 
 const ActivitiesPage = observer(() => {
   useEffect(() => {
+    TodayPageStore.listTagsForPropertyPage();
     TodayPageStore.list();
   }, []);
+
+  if (TodayPageStore.tagsForPropertyPage) {
+    TodayPageStore.tagsForPropertyPage.forEach((tag) => {
+      console.log("Testando");
+      console.log(tag);
+    });
+  }
 
   return (
     <Container>
@@ -47,12 +55,9 @@ const ActivitiesPage = observer(() => {
               horizontal
               contentContainerStyle={{ alignItems: "center" }}
             >
-              <FilterCard filterCardText="Today" isSelected />
-              <FilterCard filterCardText="Tomorrow" />
-              <FilterCard filterCardText="Tomorrow" />
-              <FilterCard filterCardText="Tomorrow" />
-              <FilterCard filterCardText="Tomorrow" />
-              <FilterCard filterCardText="Tomorrow" />
+              {TodayPageStore.tagsForPropertyPage.map((tag: any) => (
+                <FilterCard filterCardText={tag.name} isSelected />
+              ))}
             </ScrollView>
           </FilterCardContainer>
 

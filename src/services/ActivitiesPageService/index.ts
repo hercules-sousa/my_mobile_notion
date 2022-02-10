@@ -38,6 +38,17 @@ class ActivitiesPageService extends ServiceBase {
       },
     });
   }
+
+  async listTagsForProperty(property: string): Promise<Array<Record<string, string>>> {
+    try {
+      const { properties } = await this.notion.databases.retrieve({
+        database_id: this.databaseId
+      });
+      return properties[`${property}`].multi_select.options;
+    } catch (error) {
+      return [{}];
+    }
+  }
 }
 
 export default ActivitiesPageService

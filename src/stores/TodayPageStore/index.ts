@@ -5,6 +5,7 @@ import { NotionCheckboxProps, NotionDateProps, NotionMultiSelectProps, NotionNum
 interface ActivitiesPageServiceProps {
     list: Function;
     check: Function;
+    listTagsForProperty: Function;
     setNotionClient: Function;
     setDatabaseId: Function;
 }
@@ -26,6 +27,8 @@ class ActivitiesPageStore {
 
   showFilterBlocks = true
 
+  tagsForPropertyPage = [{}]
+
   service: ActivitiesPageServiceProps
 
   constructor() {
@@ -36,6 +39,7 @@ class ActivitiesPageStore {
         setSelectedFilterCard: action,
         showFilterBlocks: observable,
         toggleShowFilterBlocks: action,
+        listTagsForPropertyPage: action,
       })
       this.service = new ActivitiesPageService()
   }
@@ -64,6 +68,12 @@ class ActivitiesPageStore {
 
   toggleShowFilterBlocks() {
     this.showFilterBlocks = !this.showFilterBlocks
+  }
+
+  listTagsForPropertyPage() {
+    this.service.listTagsForProperty("Page").then((response: Promise<Array<Record<string, string>>>) => {
+      this.tagsForPropertyPage = [{...this.tagsForPropertyPage}, response]
+    })
   }
 }
 
