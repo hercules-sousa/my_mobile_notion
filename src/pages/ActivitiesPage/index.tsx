@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
 import FilterCard from "../../components/FilterCard";
 import Headline1 from "../../components/Headline1";
+import NotionButton from "../../components/NotionButton";
 
 import PageCard from "../../components/PageCard";
 import Paragraph from "../../components/Paragraph";
@@ -22,30 +23,6 @@ const ActivitiesPage = observer(() => {
     TodayPageStore.list();
   }, []);
 
-  if (false) {
-    return (
-      <Container
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            width: "80%",
-            justifyContent: "space-between",
-            backgroundColor: theme.surface,
-            padding: 8,
-          }}
-        >
-          <FilterCard filterCardText="Today" isSelected />
-          <FilterCard filterCardText="Tomorrow" />
-        </View>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <HeaderContainer>
@@ -54,34 +31,41 @@ const ActivitiesPage = observer(() => {
         </HeaderTitleContainer>
       </HeaderContainer>
 
-      <FilterCardContainer>
-        <Paragraph color="onSurface">Filter your card by date:</Paragraph>
-        <RowCardsContainer>
-          <FilterCard filterCardText="Today" isSelected />
-          <FilterCard filterCardText="Tomorrow" />
-        </RowCardsContainer>
-      </FilterCardContainer>
+      {TodayPageStore.showFilterBlocks && (
+        <>
+          <FilterCardContainer>
+            <Paragraph color="onSurface">Filter your card by date:</Paragraph>
+            <RowCardsContainer>
+              <FilterCard filterCardText="Today" isSelected />
+              <FilterCard filterCardText="Tomorrow" />
+            </RowCardsContainer>
+          </FilterCardContainer>
 
-      <FilterCardContainer>
-        <Paragraph color="onSurface">Filter your card by type:</Paragraph>
-        <ScrollView horizontal contentContainerStyle={{ alignItems: "center" }}>
-          <FilterCard filterCardText="Today" isSelected />
-          <FilterCard filterCardText="Tomorrow" />
-          <FilterCard filterCardText="Tomorrow" />
-          <FilterCard filterCardText="Tomorrow" />
-          <FilterCard filterCardText="Tomorrow" />
-          <FilterCard filterCardText="Tomorrow" />
-        </ScrollView>
-      </FilterCardContainer>
+          <FilterCardContainer>
+            <Paragraph color="onSurface">Filter your card by type:</Paragraph>
+            <ScrollView
+              horizontal
+              contentContainerStyle={{ alignItems: "center" }}
+            >
+              <FilterCard filterCardText="Today" isSelected />
+              <FilterCard filterCardText="Tomorrow" />
+              <FilterCard filterCardText="Tomorrow" />
+              <FilterCard filterCardText="Tomorrow" />
+              <FilterCard filterCardText="Tomorrow" />
+              <FilterCard filterCardText="Tomorrow" />
+            </ScrollView>
+          </FilterCardContainer>
 
-      <LinearGradient
-        colors={[theme.primary, theme.primaryDarkVariant]}
-        style={{
-          height: 100,
-          padding: 8,
-          borderRadius: 16,
-        }}
-      ></LinearGradient>
+          <LinearGradient
+            colors={[theme.primary, theme.primaryDarkVariant]}
+            style={{
+              height: 100,
+              padding: 8,
+              borderRadius: 16,
+            }}
+          ></LinearGradient>
+        </>
+      )}
 
       <LinearGradient
         colors={[theme.background, theme.background]}
@@ -103,6 +87,21 @@ const ActivitiesPage = observer(() => {
           ))}
         </ScrollView>
       </LinearGradient>
+      <View
+        style={{
+          position: "absolute",
+          alignSelf: "flex-end",
+          right: 32,
+          bottom: 64,
+        }}
+      >
+        <NotionButton
+          text="Toggle"
+          onPress={() => {
+            TodayPageStore.toggleShowFilterBlocks();
+          }}
+        />
+      </View>
     </Container>
   );
 });

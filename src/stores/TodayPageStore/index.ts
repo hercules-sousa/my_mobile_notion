@@ -24,6 +24,8 @@ class ActivitiesPageStore {
 
   selectedFilterCard = ""
 
+  showFilterBlocks = true
+
   service: ActivitiesPageServiceProps
 
   constructor() {
@@ -32,6 +34,8 @@ class ActivitiesPageStore {
         setPages: action,
         selectedFilterCard: observable,
         setSelectedFilterCard: action,
+        showFilterBlocks: observable,
+        toggleShowFilterBlocks: action,
       })
       this.service = new ActivitiesPageService()
   }
@@ -56,6 +60,10 @@ class ActivitiesPageStore {
 
   setService(service: any): void {
       this.service = service;
+  }
+
+  toggleShowFilterBlocks() {
+    this.showFilterBlocks = !this.showFilterBlocks
   }
 }
 
