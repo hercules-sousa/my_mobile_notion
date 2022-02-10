@@ -1,4 +1,4 @@
 export interface FilterCardProps {
-  isSelected: boolean;
+  isSelected?: boolean;
   filterCardText: string;
 }

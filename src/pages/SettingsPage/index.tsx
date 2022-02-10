@@ -14,6 +14,7 @@ import SettingsStore from "../../stores/SettingsStore";
 import { saveDataInSecureStorage } from "../../utils";
 import TodayPageStore from "../../stores/TodayPageStore";
 import CheckboxChecked from "../../assets/svg/Checkbox-checked.svg";
+import FilterCard from "../../components/FilterCard";
 
 const ControleFinanceiro = observer(() => {
   return (
@@ -57,6 +58,7 @@ const ControleFinanceiro = observer(() => {
           isSecondary
         />
       </NotionButtonContainer>
+      <FilterCard filterCardText="All" isSelected />
     </Container>
   );
 });

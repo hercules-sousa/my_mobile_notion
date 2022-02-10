@@ -2,9 +2,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { observer } from "mobx-react";
 import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import FilterCard from "../../components/FilterCard";
 import Headline1 from "../../components/Headline1";
-import NotionButton from "../../components/NotionButton";
 
 import PageCard from "../../components/PageCard";
 import { theme } from "../../globalStyle";
@@ -20,6 +19,25 @@ const ActivitiesPage = observer(() => {
   useEffect(() => {
     TodayPageStore.list();
   }, []);
+
+  const test = true;
+
+  if (test) {
+    return (
+      <Container style={{ alignItems: "center", justifyContent: "center" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            width: "80%",
+            justifyContent: "space-between",
+          }}
+        >
+          <FilterCard filterCardText="All" isSelected />
+          <FilterCard filterCardText="Tomorrow" />
+        </View>
+      </Container>
+    );
+  }
 
   return (
     <Container>
