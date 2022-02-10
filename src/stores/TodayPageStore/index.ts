@@ -5,6 +5,8 @@ import { NotionCheckboxProps, NotionDateProps, NotionMultiSelectProps, NotionNum
 interface ActivitiesPageServiceProps {
     list: Function;
     check: Function;
+    setNotionClient: Function;
+    setDatabaseId: Function;
 }
 interface PagesProps {
   id: string;

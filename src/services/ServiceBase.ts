@@ -6,13 +6,21 @@ abstract class ServiceBase {
   databaseId: string | undefined;
 
   constructor(databaseIdKey: string) {
-    getValueFor("notionAuthentication").then(response => {
+    this.setNotionClient()
+    this.setDatabaseId(databaseIdKey)
+  }
+
+  async setNotionClient() {
+    await getValueFor("notionAuthentication").then(response => {
       console.log(`Autenticação do notion = ${response}`)
       this.notion = new Client({
         auth: response || ""
       });
     });
-    getValueFor(databaseIdKey).then(response => {
+  }
+
+  async setDatabaseId(databaseIdKey: string) {
+    await getValueFor(databaseIdKey).then(response => {
       console.log(`ID do banco de dados = ${response}`)
       this.databaseId = response || "";
     })

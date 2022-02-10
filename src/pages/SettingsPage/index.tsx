@@ -50,6 +50,8 @@ const ControleFinanceiro = observer(() => {
               "activitiesDatabaseId",
               SettingsStore.activitiesDatabaseId
             );
+            TodayPageStore.service.setNotionClient();
+            TodayPageStore.service.setDatabaseId("activitiesDatabaseId");
             TodayPageStore.list();
           }}
           isSecondary
