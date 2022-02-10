@@ -22,9 +22,18 @@ export const HeaderTitleContainer = styled.View`
   border-radius: 34px;
 `;
 
-export const FilterLineContainer = styled.View`
+export const FilterCardContainer = styled.View`
   margin-top: 8px;
   margin-bottom: 8px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 16px;
+  height: 15%;
+  width: 100%;
+  border-radius: 16px;
+  background-color: ${theme.surface};
+`
+
+export const RowCardsContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
 `

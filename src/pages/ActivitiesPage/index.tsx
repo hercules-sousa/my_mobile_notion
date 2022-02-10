@@ -6,13 +6,15 @@ import FilterCard from "../../components/FilterCard";
 import Headline1 from "../../components/Headline1";
 
 import PageCard from "../../components/PageCard";
+import Paragraph from "../../components/Paragraph";
 import { theme } from "../../globalStyle";
 import TodayPageStore from "../../stores/TodayPageStore";
 import {
   Container,
-  FilterLineContainer,
+  FilterCardContainer,
   HeaderContainer,
   HeaderTitleContainer,
+  RowCardsContainer,
 } from "./styles";
 
 const ActivitiesPage = observer(() => {
@@ -20,19 +22,24 @@ const ActivitiesPage = observer(() => {
     TodayPageStore.list();
   }, []);
 
-  const test = true;
-
-  if (test) {
+  if (false) {
     return (
-      <Container style={{ alignItems: "center", justifyContent: "center" }}>
+      <Container
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <View
           style={{
             flexDirection: "row",
             width: "80%",
             justifyContent: "space-between",
+            backgroundColor: theme.surface,
+            padding: 8,
           }}
         >
-          <FilterCard filterCardText="All" isSelected />
+          <FilterCard filterCardText="Today" isSelected />
           <FilterCard filterCardText="Tomorrow" />
         </View>
       </Container>
@@ -45,9 +52,27 @@ const ActivitiesPage = observer(() => {
         <HeaderTitleContainer>
           <Headline1 color={"onBackground"}>Welcome back</Headline1>
         </HeaderTitleContainer>
-
-        <FilterLineContainer></FilterLineContainer>
       </HeaderContainer>
+
+      <FilterCardContainer>
+        <Paragraph color="onSurface">Filter your card by date:</Paragraph>
+        <RowCardsContainer>
+          <FilterCard filterCardText="Today" isSelected />
+          <FilterCard filterCardText="Tomorrow" />
+        </RowCardsContainer>
+      </FilterCardContainer>
+
+      <FilterCardContainer>
+        <Paragraph color="onSurface">Filter your card by type:</Paragraph>
+        <ScrollView horizontal contentContainerStyle={{ alignItems: "center" }}>
+          <FilterCard filterCardText="Today" isSelected />
+          <FilterCard filterCardText="Tomorrow" />
+          <FilterCard filterCardText="Tomorrow" />
+          <FilterCard filterCardText="Tomorrow" />
+          <FilterCard filterCardText="Tomorrow" />
+          <FilterCard filterCardText="Tomorrow" />
+        </ScrollView>
+      </FilterCardContainer>
 
       <LinearGradient
         colors={[theme.primary, theme.primaryDarkVariant]}

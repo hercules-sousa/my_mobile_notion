@@ -12,7 +12,6 @@ abstract class ServiceBase {
 
   async setNotionClient() {
     await getValueFor("notionAuthentication").then(response => {
-      console.log(`Autenticação do notion = ${response}`)
       this.notion = new Client({
         auth: response || ""
       });
@@ -21,7 +20,6 @@ abstract class ServiceBase {
 
   async setDatabaseId(databaseIdKey: string) {
     await getValueFor(databaseIdKey).then(response => {
-      console.log(`ID do banco de dados = ${response}`)
       this.databaseId = response || "";
     })
   }
