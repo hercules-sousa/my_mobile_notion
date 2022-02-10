@@ -1,32 +1,18 @@
-import {
-  SelectedContainer,
-  SelectedCardText,
-  NotSelectedContainer,
-  NotSelectedCardText,
-} from "./styles";
+import MiniParagraph from "../MiniParagraph";
+import { SelectedFilterCard, UnselectedFilterCard } from "./styles";
 import { FilterCardProps } from "./types";
 
-function FilterCard({
-  cardName,
-  selectedFilterCardName,
-  onPressFilterCard,
-}: FilterCardProps) {
-  if (cardName === selectedFilterCardName) {
+const FilterCard = ({ filterCardText, isSelected }: FilterCardProps) => {
+  if (isSelected) {
     return (
-      <SelectedContainer
-        onPress={() => {
-          onPressFilterCard(cardName);
-        }}
-      >
-        <SelectedCardText>{cardName}</SelectedCardText>
-      </SelectedContainer>
+      <SelectedFilterCard>
+        <MiniParagraph color="onPrimary">Example</MiniParagraph>
+      </SelectedFilterCard>
     );
   }
   return (
-    <NotSelectedContainer onPress={() => onPressFilterCard(cardName)}>
-      <NotSelectedCardText>{cardName}</NotSelectedCardText>
-    </NotSelectedContainer>
+    <UnselectedFilterCard>
+      <MiniParagraph color="Primary">Example</MiniParagraph>
+    </UnselectedFilterCard>
   );
-}
-
-export default FilterCard;
+};

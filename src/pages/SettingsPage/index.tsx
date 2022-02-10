@@ -57,9 +57,6 @@ const ControleFinanceiro = observer(() => {
           isSecondary
         />
       </NotionButtonContainer>
-      <View>
-        <CheckboxChecked width={32} height={32} />
-      </View>
     </Container>
   );
 });
