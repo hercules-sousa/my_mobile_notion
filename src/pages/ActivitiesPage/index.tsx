@@ -24,13 +24,6 @@ const ActivitiesPage = observer(() => {
     TodayPageStore.list();
   }, []);
 
-  if (TodayPageStore.tagsForPropertyPage) {
-    TodayPageStore.tagsForPropertyPage.forEach((tag) => {
-      console.log("Testando");
-      console.log(tag);
-    });
-  }
-
   return (
     <Container>
       <HeaderContainer>

@@ -27,7 +27,7 @@ class ActivitiesPageStore {
 
   showFilterBlocks = true
 
-  tagsForPropertyPage = [{}]
+  tagsForPropertyPage: Array<Record<string, string>> = []
 
   service: ActivitiesPageServiceProps
 
@@ -39,7 +39,8 @@ class ActivitiesPageStore {
         setSelectedFilterCard: action,
         showFilterBlocks: observable,
         toggleShowFilterBlocks: action,
-        listTagsForPropertyPage: action,
+        tagsForPropertyPage: observable,
+        setTagsForPropertyPage: action,
       })
       this.service = new ActivitiesPageService()
   }
@@ -70,9 +71,13 @@ class ActivitiesPageStore {
     this.showFilterBlocks = !this.showFilterBlocks
   }
 
+  setTagsForPropertyPage(tags: Array<Record<string, string>>) {
+    this.tagsForPropertyPage = tags
+  }
+
   listTagsForPropertyPage() {
-    this.service.listTagsForProperty("Page").then((response: Promise<Array<Record<string, string>>>) => {
-      this.tagsForPropertyPage = [{...this.tagsForPropertyPage}, response]
+    this.service.listTagsForProperty("Page").then((response: Array<Record<string, string>>) => {
+      this.setTagsForPropertyPage(response)
     })
   }
 }
