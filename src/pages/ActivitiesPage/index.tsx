@@ -8,6 +8,7 @@ import NotionButton from "../../components/NotionButton";
 
 import PageCard from "../../components/PageCard";
 import Paragraph from "../../components/Paragraph";
+import SuperHeadline1 from "../../components/SuperHeadline1";
 import { theme } from "../../globalStyle";
 import TodayPageStore from "../../stores/TodayPageStore";
 import {
@@ -48,8 +49,12 @@ const ActivitiesPage = observer(() => {
               horizontal
               contentContainerStyle={{ alignItems: "center" }}
             >
+              <FilterCard filterCardText="All" isSelected />
               {TodayPageStore.tagsForPropertyPage.map((tag: any) => (
-                <FilterCard filterCardText={tag.name} isSelected />
+                <FilterCard
+                  filterCardText={tag.name}
+                  isSelected={tag.name === "All"}
+                />
               ))}
             </ScrollView>
           </FilterCardContainer>
@@ -60,8 +65,56 @@ const ActivitiesPage = observer(() => {
               height: 100,
               padding: 8,
               borderRadius: 16,
+              flexDirection: "row",
             }}
-          ></LinearGradient>
+          >
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "space-evenly",
+                flexDirection: "row",
+                borderRightColor: theme.onSurfaceDark,
+                borderRightWidth: 1,
+              }}
+            >
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <SuperHeadline1 color="onPrimary">5</SuperHeadline1>
+              </View>
+
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <Paragraph color="onPrimary">
+                  Estimated {"\n"}time in {"\n"}hours
+                </Paragraph>
+              </View>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "space-evenly",
+                flexDirection: "row",
+                borderLeftColor: theme.onSurfaceDark,
+                borderLeftWidth: 1,
+              }}
+            >
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <SuperHeadline1 color="onPrimary">50</SuperHeadline1>
+              </View>
+
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <Paragraph color="onPrimary">Activities {"\n"}count</Paragraph>
+              </View>
+            </View>
+          </LinearGradient>
         </>
       )}
 
