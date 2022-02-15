@@ -62,7 +62,9 @@ class ActivitiesPageStore {
   }
 
   async check(pageId: string, done: boolean) {
+    this.toggleShowProgressBar()
     await this.service.check(pageId, done);
+    this.toggleShowProgressBar()
     this.list()
   }
 
