@@ -52,6 +52,7 @@ const ActivitiesPage = observer(() => {
               <FilterCard filterCardText="All" isSelected />
               {TodayPageStore.tagsForPropertyPage.map((tag: any) => (
                 <FilterCard
+                  key={tag.id}
                   filterCardText={tag.name}
                   isSelected={tag.name === "All"}
                 />
