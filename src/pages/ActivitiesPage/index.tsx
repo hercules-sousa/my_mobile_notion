@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 import moment from "moment";
 import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
+import { LinearProgress } from "react-native-elements";
 import FilterCard from "../../components/FilterCard";
 import Headline1 from "../../components/Headline1";
 import NotionButton from "../../components/NotionButton";
@@ -33,6 +34,12 @@ const ActivitiesPage = observer(() => {
           <Headline1 color={"onBackground"}>Welcome back</Headline1>
         </HeaderTitleContainer>
       </HeaderContainer>
+
+      <LinearProgress
+        style={{ marginVertical: 10 }}
+        color={theme.primary}
+        trackColor={theme.surface}
+      />
 
       {TodayPageStore.showFilterBlocks && (
         <>
@@ -175,25 +182,6 @@ const ActivitiesPage = observer(() => {
           text="Toggle"
           onPress={() => {
             TodayPageStore.toggleShowFilterBlocks();
-          }}
-        />
-      </View>
-
-      <View
-        style={{
-          position: "absolute",
-          alignSelf: "flex-end",
-          right: 32,
-          bottom: 116,
-        }}
-      >
-        <NotionButton
-          text="Tomorrow"
-          onPress={() => {
-            const today = moment();
-            const tomorrow = today.add(1, "days");
-            TodayPageStore.setDate(tomorrow.format("YYYY-MM-DD"));
-            TodayPageStore.list();
           }}
         />
       </View>
