@@ -24,7 +24,7 @@ abstract class ServiceBase {
     })
   }
 
-  abstract list(): Promise<Array<Record<string, unknown>>>
+  abstract list(date: string): Promise<Array<Record<string, unknown>>>
   
 }
 

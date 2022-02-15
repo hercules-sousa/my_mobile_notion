@@ -3,10 +3,14 @@ import MiniParagraph from "../MiniParagraph";
 import { SelectedFilterCard, UnselectedFilterCard } from "./styles";
 import { FilterCardProps } from "./types";
 
-const FilterCard = ({ filterCardText, isSelected }: FilterCardProps) => {
+const FilterCard = ({
+  filterCardText,
+  isSelected,
+  ...props
+}: FilterCardProps) => {
   if (isSelected) {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity {...props}>
         <SelectedFilterCard>
           <MiniParagraph color="onPrimary">{filterCardText}</MiniParagraph>
         </SelectedFilterCard>
@@ -14,7 +18,7 @@ const FilterCard = ({ filterCardText, isSelected }: FilterCardProps) => {
     );
   }
   return (
-    <TouchableOpacity>
+    <TouchableOpacity {...props}>
       <UnselectedFilterCard>
         <MiniParagraph color="primary">{filterCardText}</MiniParagraph>
       </UnselectedFilterCard>

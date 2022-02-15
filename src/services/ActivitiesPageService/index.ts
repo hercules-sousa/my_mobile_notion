@@ -7,16 +7,14 @@ class ActivitiesPageService extends ServiceBase {
     super("activitiesDatabaseId")
   }
 
-  async list(): Promise<Record<string, string>[]> {
-    const todayDate = moment().format('YYYY-MM-DD');
-
+  async list(date: string): Promise<Record<string, string>[]> {
     try {
       const { results } = await this.notion.databases.query({
         database_id: this.databaseId,
         filter: {
           property: 'Date',
           date: {
-            equals: todayDate,
+            equals: date,
           },
         },
       });

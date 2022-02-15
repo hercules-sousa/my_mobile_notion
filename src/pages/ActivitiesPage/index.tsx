@@ -1,5 +1,6 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { observer } from "mobx-react";
+import moment from "moment";
 import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
 import FilterCard from "../../components/FilterCard";
@@ -38,8 +39,30 @@ const ActivitiesPage = observer(() => {
           <FilterCardContainer>
             <Paragraph color="onSurface">Filter your card by date:</Paragraph>
             <RowCardsContainer>
-              <FilterCard filterCardText="Today" isSelected />
-              <FilterCard filterCardText="Tomorrow" />
+              <FilterCard
+                filterCardText="Today"
+                isSelected={
+                  TodayPageStore.date === moment().format("YYYY-MM-DD")
+                }
+                onPress={() => {
+                  const today = moment();
+                  TodayPageStore.setDate(today.format("YYYY-MM-DD"));
+                  TodayPageStore.list();
+                }}
+              />
+              <FilterCard
+                filterCardText="Tomorrow"
+                isSelected={
+                  TodayPageStore.date ===
+                  moment().add(1, "days").format("YYYY-MM-DD")
+                }
+                onPress={() => {
+                  const today = moment();
+                  const tomorrow = today.add(1, "days");
+                  TodayPageStore.setDate(tomorrow.format("YYYY-MM-DD"));
+                  TodayPageStore.list();
+                }}
+              />
             </RowCardsContainer>
           </FilterCardContainer>
 
@@ -139,6 +162,7 @@ const ActivitiesPage = observer(() => {
           ))}
         </ScrollView>
       </LinearGradient>
+
       <View
         style={{
           position: "absolute",
@@ -151,6 +175,25 @@ const ActivitiesPage = observer(() => {
           text="Toggle"
           onPress={() => {
             TodayPageStore.toggleShowFilterBlocks();
+          }}
+        />
+      </View>
+
+      <View
+        style={{
+          position: "absolute",
+          alignSelf: "flex-end",
+          right: 32,
+          bottom: 116,
+        }}
+      >
+        <NotionButton
+          text="Tomorrow"
+          onPress={() => {
+            const today = moment();
+            const tomorrow = today.add(1, "days");
+            TodayPageStore.setDate(tomorrow.format("YYYY-MM-DD"));
+            TodayPageStore.list();
           }}
         />
       </View>

@@ -1,4 +1,5 @@
 import { makeObservable, observable, action } from "mobx"
+import moment from "moment"
 import ActivitiesPageService from "../../services/ActivitiesPageService"
 import { NotionCheckboxProps, NotionDateProps, NotionMultiSelectProps, NotionNumberProps, NotionTitleProps } from "../../types/NotionTypes"
 
@@ -31,6 +32,8 @@ class ActivitiesPageStore {
 
   service: ActivitiesPageServiceProps
 
+  date = moment().format("YYYY-MM-DD");
+
   constructor() {
       makeObservable(this, {
         pages: observable,
@@ -41,12 +44,14 @@ class ActivitiesPageStore {
         toggleShowFilterBlocks: action,
         tagsForPropertyPage: observable,
         setTagsForPropertyPage: action,
+        date: observable,
+        setDate: action,
       })
       this.service = new ActivitiesPageService()
   }
 
   async list(): Promise<void> {
-    const pages = await this.service.list()
+    const pages = await this.service.list(this.date)
     this.setPages(pages)
   }
 
@@ -79,6 +84,10 @@ class ActivitiesPageStore {
     this.service.listTagsForProperty("Page").then((response: Array<Record<string, string>>) => {
       this.setTagsForPropertyPage(response)
     })
+  }
+
+  setDate(date: string) {
+    this.date = date;
   }
 }
 
