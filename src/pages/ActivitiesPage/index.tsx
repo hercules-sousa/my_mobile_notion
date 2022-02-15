@@ -33,13 +33,25 @@ const ActivitiesPage = observer(() => {
         <HeaderTitleContainer>
           <Headline1 color={"onBackground"}>Welcome back</Headline1>
         </HeaderTitleContainer>
+        <View
+          style={{
+            position: "absolute",
+            bottom: 0,
+            width: "100%",
+            height: 10,
+            alignSelf: "center",
+            marginVertical: 10,
+          }}
+        >
+          {TodayPageStore.showProgressBar && (
+            <LinearProgress
+              style={{ marginVertical: 10 }}
+              color={theme.primary}
+              trackColor={theme.background}
+            />
+          )}
+        </View>
       </HeaderContainer>
-
-      <LinearProgress
-        style={{ marginVertical: 10 }}
-        color={theme.primary}
-        trackColor={theme.surface}
-      />
 
       {TodayPageStore.showFilterBlocks && (
         <>

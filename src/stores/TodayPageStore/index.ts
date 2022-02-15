@@ -34,6 +34,8 @@ class ActivitiesPageStore {
 
   date = moment().format("YYYY-MM-DD");
 
+  showProgressBar: boolean = false
+
   constructor() {
       makeObservable(this, {
         pages: observable,
@@ -46,13 +48,17 @@ class ActivitiesPageStore {
         setTagsForPropertyPage: action,
         date: observable,
         setDate: action,
+        showProgressBar: observable,
+        toggleShowProgressBar: action
       })
       this.service = new ActivitiesPageService()
   }
 
   async list(): Promise<void> {
+    this.toggleShowProgressBar()
     const pages = await this.service.list(this.date)
     this.setPages(pages)
+    this.toggleShowProgressBar()
   }
 
   async check(pageId: string, done: boolean) {
@@ -88,6 +94,10 @@ class ActivitiesPageStore {
 
   setDate(date: string) {
     this.date = date;
+  }
+
+  toggleShowProgressBar() {
+    this.showProgressBar = !this.showProgressBar
   }
 }
 

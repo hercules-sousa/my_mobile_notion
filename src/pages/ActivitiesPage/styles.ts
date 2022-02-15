@@ -13,7 +13,7 @@ export const Container = styled.View<ViewExtended>`
 
 export const HeaderContainer = styled.View`
   padding: 8px;
-  
+  position: relative;
 `
 
 export const HeaderTitleContainer = styled.View`
