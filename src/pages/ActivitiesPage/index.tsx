@@ -126,7 +126,9 @@ const ActivitiesPage = observer(() => {
                   justifyContent: "center",
                 }}
               >
-                <SuperHeadline1 color="onPrimary">5</SuperHeadline1>
+                <SuperHeadline1 color="onPrimary">
+                  {TodayPageStore.estimatedHours}
+                </SuperHeadline1>
               </View>
 
               <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -150,7 +152,9 @@ const ActivitiesPage = observer(() => {
                   justifyContent: "center",
                 }}
               >
-                <SuperHeadline1 color="onPrimary">50</SuperHeadline1>
+                <SuperHeadline1 color="onPrimary">
+                  {TodayPageStore.activitiesCount}
+                </SuperHeadline1>
               </View>
 
               <View style={{ alignItems: "center", justifyContent: "center" }}>

@@ -36,6 +36,10 @@ class ActivitiesPageStore {
 
   showProgressBar: boolean = false
 
+  activitiesCount = 0
+
+  estimatedHours = 0
+
   constructor() {
       makeObservable(this, {
         pages: observable,
@@ -49,7 +53,11 @@ class ActivitiesPageStore {
         date: observable,
         setDate: action,
         showProgressBar: observable,
-        toggleShowProgressBar: action
+        toggleShowProgressBar: action,
+        activitiesCount: observable,
+        setActivitiesCount: action,
+        estimatedHours: observable,
+        setEstimatedHours: action,
       })
       this.service = new ActivitiesPageService()
   }
@@ -58,6 +66,8 @@ class ActivitiesPageStore {
     this.toggleShowProgressBar()
     const pages = await this.service.list(this.date)
     this.setPages(pages)
+    this.setActivitiesCount(pages.length)
+    this.setEstimatedHours()
     this.toggleShowProgressBar()
   }
 
@@ -100,6 +110,18 @@ class ActivitiesPageStore {
 
   toggleShowProgressBar() {
     this.showProgressBar = !this.showProgressBar
+  }
+
+  setActivitiesCount(quantitiy: number) {
+    this.activitiesCount = quantitiy
+  }
+
+  setEstimatedHours() {
+    let count = 0;
+    this.pages.forEach(page => {
+      count += page.properties.Time.number
+    })
+    this.estimatedHours = Math.round(count / 60 * 10) / 10
   }
 }
 
