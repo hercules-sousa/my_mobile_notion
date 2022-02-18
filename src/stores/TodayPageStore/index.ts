@@ -69,6 +69,7 @@ class ActivitiesPageStore {
     this.setActivitiesCount(pages.length)
     this.setEstimatedHours()
     this.toggleShowProgressBar()
+    console.log(this.pages[0].properties)
   }
 
   async check(pageId: string, done: boolean) {

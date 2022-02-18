@@ -31,6 +31,5 @@ export const FirstRowContainer = styled.View`
 `;
 
 export const SecondRowContainer = styled.View`
-  background-color: #101010;
-  height: 40%;
+  height: 45%;
 `
